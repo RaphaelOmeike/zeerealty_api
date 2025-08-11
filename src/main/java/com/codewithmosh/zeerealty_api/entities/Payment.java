@@ -15,15 +15,38 @@ public class Payment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private BigDecimal RentFee;
+    private BigDecimal rentFee;
 
-    private BigDecimal AgentFee;
+    private BigDecimal agentFee;
 
-    private BigDecimal ServiceFee;
+    private BigDecimal serviceFee;
 
-    private BigDecimal InspectionFee;
+    private BigDecimal inspectionFee;
 
-    private BigDecimal LegalFee;
+    private BigDecimal legalFee;
+
+    private BigDecimal totalAmount;
+
+    private PaymentStatus status;
+
+    // confirm if cart based
+
+    //stopped here
+
+//    PaymentID: UUID or Long.
+//
+//            CustomerID: UUID or Long (foreign key).
+//
+//    PropertyID: UUID or Long (foreign key).
+//
+//    TotalAmount: BigDecimal.
+//
+//            PaymentDate: LocalDateTime.
+//
+//            Status: enum PaymentStatus { PENDING, COMPLETED, FAILED }.
+//
+//    RentFee, AgentFee, ServiceFee, InspectionFee, LegalFee: BigDecimal.
+
 
 
 }

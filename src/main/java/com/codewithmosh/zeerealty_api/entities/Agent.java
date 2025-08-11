@@ -4,7 +4,9 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Getter
@@ -25,6 +27,9 @@ public class Agent {
     @Column(name = "kyc_status")
     private KYCStatus kycStatus;
 
-    @OneToMany(mappedBy = "property")
+    @OneToMany(mappedBy = "agent")
     private Set<Property> properties = new HashSet<>();
+
+    @OneToMany(mappedBy = "agent")
+    private List<AgentReview> agentReviews = new ArrayList<>();
 }

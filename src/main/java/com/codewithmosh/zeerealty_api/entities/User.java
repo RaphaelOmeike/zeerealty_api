@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.UUID;
 
 @Getter
@@ -44,4 +46,10 @@ public class User {
 
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
+
+    @OneToMany(mappedBy = "uploader")
+    private List<Document> uploadedDocuments = new LinkedList<>();
+
+    @OneToMany(mappedBy = "owner")
+    private List<Document> kycDocuments = new LinkedList<>();
 }

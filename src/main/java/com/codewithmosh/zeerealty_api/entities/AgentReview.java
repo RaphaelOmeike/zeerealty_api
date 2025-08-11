@@ -3,7 +3,7 @@ package com.codewithmosh.zeerealty_api.entities;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.aspectj.weaver.loadtime.Agent;
+import lombok.ToString;
 
 import java.time.LocalDateTime;
 
@@ -22,13 +22,16 @@ public class AgentReview {
     @Column(name = "rating")
     private double rating;
 
+    @ManyToOne
+    @JoinColumn(name = "agent_id")
+//    @ToString.Exclude
+    private Agent agent;
 
-    private Agent agent; // Assuming agentId is a foreign key to Agent entity
-
-
-    private Long customerId; // Assuming customerId is a foreign key to Customer entity
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
+    @ToString.Exclude
+    private Customer customer;
 
     @Column(name = "createdAt", insertable = false, updatable = false)
     private LocalDateTime createdAt;
-    // Constructors, getters, setters, etc. can be added as needed
 }

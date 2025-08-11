@@ -21,6 +21,5 @@ public class Customer {
     @Column(name = "kyc_status")
     private KYCStatus kycStatus;
 
-    @OneToMany(mappedBy = "properties")
-    private List<Property> likedProperties;
+
 }

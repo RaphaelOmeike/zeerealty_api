@@ -27,6 +27,9 @@ public class Document {
     @Column(name = "upload_date", insertable = false, updatable = false)
     private LocalDateTime uploadedAt;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User uploader;
 }
 
 

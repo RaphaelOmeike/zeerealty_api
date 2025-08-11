@@ -42,6 +42,6 @@ public class Address {
     private BigDecimal longitude;
 
     //fk one to many with Property
-    @OneToMany(mappedBy = "property")
+    @OneToMany(mappedBy = "address")
     private Set<Property> properties = new HashSet<>();
 }
