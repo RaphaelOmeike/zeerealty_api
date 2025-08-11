@@ -4,13 +4,14 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
 @Entity
-@Table(name = "customers")
-public class Customer {
+@Table(name = "agents")
+public class Agent {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -18,9 +19,12 @@ public class Customer {
     @Column(name = "email")
     private String email;
 
+    @Column(name = "agency_name")
+    private String agencyName;
+
     @Column(name = "kyc_status")
     private KYCStatus kycStatus;
 
-    @OneToMany(mappedBy = "properties")
-    private List<Property> likedProperties;
+    @OneToMany(mappedBy = "property")
+    private Set<Property> properties = new HashSet<>();
 }
