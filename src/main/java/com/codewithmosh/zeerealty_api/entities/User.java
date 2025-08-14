@@ -51,5 +51,5 @@ public class User {
     private List<Document> uploadedDocuments = new LinkedList<>();
 
     @OneToMany(mappedBy = "owner")
-    private List<Document> kycDocuments = new LinkedList<>();
+    private List<KYCDocument> kycDocuments = new LinkedList<>();
 }

@@ -1,9 +1,15 @@
 package com.codewithmosh.zeerealty_api.entities;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
 
+@Getter
+@Entity
+@Setter
+@Table(name = "kyc_documents")
 public class KYCDocument {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

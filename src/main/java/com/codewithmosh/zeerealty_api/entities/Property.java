@@ -4,7 +4,9 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 @Getter
@@ -14,6 +16,7 @@ import java.util.UUID;
 public class Property {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
+    @Column(name = "id")
     private UUID id;
 
     @Column(name = "name")
@@ -24,7 +27,6 @@ public class Property {
 
     private boolean isVerified;
 
-
     @ManyToOne
     @JoinColumn(name = "address_id")
     private Address address;
@@ -34,10 +36,21 @@ public class Property {
     @JoinColumn(name = "agent_id")
     private Agent agent;
     //list of house features
+    @OneToOne(mappedBy = "property")
+    private Payment payment;
 
-    private List<String> amenities;
+    @OneToMany(mappedBy = "property")
+    private Set<PropertyImage> propertyImages = new HashSet<>();
 
+    @OneToMany(mappedBy = "property")
+    private Set<PropertyVideo> propertyVideos = new HashSet<>();
 
+    @OneToMany(mappedBy = "property", cascade = CascadeType.ALL)
+    private Set<CustomerProperty> likingCustomers = new HashSet<>();
+
+    @Column(name = "amenities")
+    private String amenitiesString; //if there is a way I could alternate between strings
+    private List<String> amenities; //if there is a way I could alternate between strings
 }
 
 

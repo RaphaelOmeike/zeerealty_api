@@ -13,6 +13,7 @@ import java.time.LocalDateTime;
 public class Document {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private long Id;
 
     @Column(name = "file_name")
